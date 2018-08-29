@@ -33,9 +33,22 @@ It's simple, Google Chrome allows uploading chrome extension bundle. Follow thes
 
 6. Extension **Github Release Helper** is added and ready to use. Head over to create pull request on Github and once page is loaded, hit **Github Release Helper Icon**.
 
-## Note
+## Options
 
-Currently extension ignores commit messages that have following keywords in it. Blacklisted keywords are `merge, tests and lint`.
+You are able to configure a few things:
+
+### Blacklist
+Ignore commits which messages have the words defined on the blacklist.
+By default the keywords `^merge`, `tests` and `lint` are configured.
+
+_You can separate the keywords by comma. It also accepts regex syntaxes._
+
+### Jira Tickets
+Define the Jira base URL that will be used to generate Jira Ticket links.
+
+_i.e.: https://my-jira-project.atlassian.com/browse_
+
+_The tickets are identified from the branch name and the commit messages, by the pattern of uppercase letters followed by a dash and numbers. i.e.: ABC-123_
 
 ## Contribution
 
