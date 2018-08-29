@@ -1,9 +1,9 @@
 var tickets = new Set();
 var jiraTicketRegex = /([A-Z]+-\d+)/;
 
-var jiraBaseURL, blackListArray;
+var jiraBaseURL, blackListRegex;
 chrome.storage.sync.get(function(obj) {
-  blackListArray = obj.blackLists.split(/\s*,\s*/);
+  if (obj.blackLists) blackListRegex = new RegExp(obj.blackLists.split(/\s*,\s*/).join('|'),'i');
   jiraBaseURL = obj.jiraBaseURL;
 });
 
@@ -18,13 +18,7 @@ if (jiraBaseURL) {
 var commitsArray = Array.from(document.querySelectorAll('.commit-message a'));
 var commits = [...new Set(
   commitsArray
-  .filter(
-    el => (title = el.title) &&
-          !!title.indexOf('Merge') &&
-          !title.includes('tests') && 
-          !title.includes('test') && 
-          !title.includes('lint')
-  )
+  .filter( el => (title = el.title) && (!blackListRegex || !title.match(blackListRegex)) )
   .map(el => `${el.title} ${el.href.match("[^/]+$")[0]}`)
   .map(title => {
     if (jiraBaseURL) {
@@ -43,7 +37,7 @@ var authors = [...new Set(
 tickets = [...tickets].map(ticket => `- [${ticket}](${jiraBaseURL}/${ticket})`).join("\n");
 
 var ticket_info;
-if (jiraBaseURL) ticket_info = "**Tickets:**" + "\n" + tickets;
+if (jiraBaseURL && tickets) ticket_info = "**Tickets:**" + "\n" + tickets;
 var commit_info = "**In this release:**" + "\n" + commits;
 var author_info = "**Contributors:**" + "\n" + authors;
 var date = "**Date:**" + "\n" + new Date().toLocaleString();
