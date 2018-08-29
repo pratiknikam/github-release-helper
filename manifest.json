@@ -1,6 +1,6 @@
 {
     "name": "Github Release Helper",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "manifest_version": 2,
     "description": "Generate github release notes with 1 click.",
     "background": {
