@@ -1,4 +1,4 @@
-# Github Release Helper
+# Github Release Helper Test
 
 <img src="https://media.giphy.com/media/7JsCLgMABoNIorie9o/giphy.gif" width="600" />
 
