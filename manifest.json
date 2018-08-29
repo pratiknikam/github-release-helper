@@ -13,7 +13,9 @@
       "default_icon": "icons/icon16.png",
       "default_title": "Generate Release Notes"
     },
-    "options_page": "options.html",
+    "options_ui": {
+      "page": "options.html"
+    },
     "permissions": [
         "https://github.com/",
         "activeTab",

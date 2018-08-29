@@ -2,8 +2,18 @@
 <html>
 <head><title>Github Release Helper</title></head>
 <body>
+<fieldset>
+<legend>Configurations</legend>
+<div>
+<label for='blacklists'>Ignore commits that contain these words:</label><br/>
 <textarea id="blacklists" rows="4" cols="50"></textarea>
+</div>
+<div>
+<label for="jirabaseurl">Jira base URL:</label><br/>
+<input id="jirabaseurl" type="url" placeholder="https://my-jira.domain.com/browse" pattern="https?://.*" size="35"/>
+</div>
 <button id="save">Save</button>
+</fieldset>
 <script src="options.js"></script>
 </body>
 </html>
