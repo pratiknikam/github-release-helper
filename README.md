@@ -8,7 +8,7 @@ This a Google Chrome extension which helpes you to create release notes on Githu
 
 ## Is this available on Google Chrome Extension Store?
 
-Unfortunately no. Google keeps taking down this app without clear explanation.
+Yes, [download now](https://chrome.google.com/webstore/detail/github-release-helper/ofckkfbgolneogmcdokpcnaaijggjnlc?hl=en)
 
 ## How do I use it then? 
 
